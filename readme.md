@@ -87,7 +87,7 @@ In 'config.plist' -> 'DeviceProperties' -> 'Add' -> 'PciRoot(0x0)/Pci(0x3,0x1)/P
 If you have any other questions or issues, feel free to ask on [**AMD-OSX Discord**](https://discord.gg/EfCYAJW) or [**Forum**](https://forum.amd-osx.com)
 
 ## Cosmetics
-**[Guide Change CPU name in Big Sur](https://climbjoe.tv/how-to-change-your-processor-name-in-big-sur/)**
+[Guide Change CPU name in Big Sur](https://climbjoe.tv/how-to-change-your-processor-name-in-big-sur/)
 **Guide Change Big SUr Logo in About This Mac**
 
 
