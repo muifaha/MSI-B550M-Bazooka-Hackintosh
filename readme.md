@@ -1,5 +1,7 @@
 # OpenCore EFI for AMD Ryzen Hackintosh
 
+![Dark mode](https://raw.githubusercontent.com/muifaha/MSI-B550M-Bazooka-Hackintosh/main/images/Screen%20Shot%202021-04-09%20at%2021.26.12.png)
+
 ## Specification
 | **Component** | **Model** |
 | ------------- | --------- |
