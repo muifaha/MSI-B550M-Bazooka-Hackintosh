@@ -14,6 +14,8 @@
 **macOS version**: 11.2.3 (20D91)  
 **OpenCore version**: 0.6.8  
 
+
+
 ## Table of content
  - [Compatible macOS versions](#Compatible-macOS-versions)
  - [Issues](#Issues)
@@ -24,6 +26,7 @@
  - [Adobe applications fix](#Adobe-applications-fix)
  - [Spoofing GPU](#Spoofing_GPU)
  - [Guides](#Guides)
+ - [Cosmetics](#Cosmetics)
  - [Credits](#Credits)
 
 ## Compatible macOS versions
