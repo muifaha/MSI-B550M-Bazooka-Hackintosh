@@ -22,6 +22,7 @@
  - [Sleep informations](#Sleep-informations)
  - [PAT patch information](#PAT-patch-information)
  - [Adobe applications fix](#Adobe-applications-fix)
+ - [Spoofing GPU](#Spoofing_GPU)
  - [Guides](#Guides)
  - [Credits](#Credits)
 
@@ -70,6 +71,9 @@ Adobe applications crash on AMD Hackintoshes due to missing intel_fast_memset in
 
 But in Adobe CC 2021 only Photoshop and Illustator need patches, After Effect, Premier Pro, Audition, Character Animation, Media Encoder work without patches.
 
+##Spoofing GPU
+In 'config.plist' -> 'DeviceProperties' -> 'Add' -> 'PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)' i add spoofing XFX 5500XT to Radeon Pro W5500X 8 GB remove 'PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)' and any childern if you note using RX 5500XT
+
 ## Guides
 **If you have any problems with installation or booting your macOS, kernel panics or another system related issue check OC configuration guide**  
 **If something else isn't working properly (for example USB ports, iServices, DRM/Netflix) check Post-Install guide**
@@ -80,7 +84,12 @@ But in Adobe CC 2021 only Photoshop and Illustator need patches, After Effect, P
  - ACPI patching: [**\*click\***](https://dortania.github.io/Getting-Started-With-ACPI/)
  - USB mapping: [**\*click\***](https://dortania.github.io/OpenCore-Post-Install/usb/)
 
-If you have any other questions or issues, feel free to ask on [**AMD-OSX Discord**](https://discord.gg/EfCYAJW) or [**Forum**](https://forum.amd-osx.com)  
+If you have any other questions or issues, feel free to ask on [**AMD-OSX Discord**](https://discord.gg/EfCYAJW) or [**Forum**](https://forum.amd-osx.com)
+
+## Cosmetics
+**[Guide Change CPU name in Big Sur](https://climbjoe.tv/how-to-change-your-processor-name-in-big-sur/)**
+**Guide Change Big SUr Logo in About This Mac**
+
 
 ## Credits
 **Software:**
