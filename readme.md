@@ -3,13 +3,13 @@
 ## Specification
 | **Component** | **Model** |
 | ------------- | --------- |
-| CPU | AMD Ryzen 7 1700 @ 3.8GHz |
-| Motherboard | ASUS B350 Plus |
-| RAM | 16GB (2 x 8GB) Corsair Vengeance @ 3000MHz |
-| Audio Chipset | ALC-887 |
-| GPU | MSI RX Vega 64 |
-| WiFi & Bluetooth | Fenvi T919 (BCM94360CD) |
-| OS Disk (NVMe) | ADATA SX8200 Pro 1TB |
+| CPU | AMD Ryzen 5 3600 Overclocked @ 4.2GHz 1.1750v |
+| Motherboard | MSI B550M Bazooka |
+| RAM | 16GB (2 x 8GB) Corsair Vengeance Overclocked @ 3266MHz |
+| Audio Chipset | Realtek® ALC892/ALC897 |
+| GPU | XFX RX 5500 XT|
+| LAN | Realtek® RTL8111HN 1Gbps LAN controller |
+| OS Disk | Transcend SSD SATA3 SSD230S 256GB |
 
 **macOS version**: 11.2.3 (20D91)  
 **OpenCore version**: 0.6.8  
@@ -38,7 +38,7 @@
 ## How to use
   1. Make your USB installer with [**this guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
   2. Clone the repository and paste "BOOT" and "OC" directories into your's pendrive "EFI" folder
-  3. Download [**GenSMBIOS**](https://github.com/corpnewt/GenSMBIOS) to generate unique SMBIOS information. Run it and select **Generate SMBIOS**, as the model select **iMacPro1,1**.
+  3. Download [**GenSMBIOS**](https://github.com/corpnewt/GenSMBIOS) to generate unique SMBIOS information. Run it and select **Generate SMBIOS**, as the model select **MacPro7,1**
   4. Open config.plist with [**ProperTree**](https://github.com/corpnewt/ProperTree) and go to PlatformInfo > Generic. Set MLB (Board Serial), SystemSerialNumber (Serial) and SystemUUID (SmUUID) to generated values. Change ROM to your network card's MAC address without the `:` character. [**How to get MAC Address?**](https://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer)
   5. Boot it!  
   
@@ -50,9 +50,7 @@ If audio does not work for you you have to change layout-id for your audio chips
 For AMD Navi GPUs (RX 5500, 5600, 5700) you have to add `agdpmod=pikera` to boot-args to fix black screen issue.
 
 ## Sleep informations
-In `SSDT-SLEEP.aml` there are patches for _STA method. They are applied to `_SB.PCI0.GPP2.PTXH` and `_SB.PCI0.GP17.XHC0` USB controllers. Both patches are applied only for macOS, so sleep on other systems will work normally.
-
-Firstly, check does sleep works for your build with default disabled SSDT. If it works, you don't have to do anything. If not, try to enable `SSDT-SLEEP` in `config.plist`. If you have same USB controllers adresses as me, SSDT should work. If it still does not work you have to find addresses of USB controllers, and modify `SSDT-SLEEP`.  
+In my bluid sleep is work. If not, try to enable `SSDT-SLEEP` in `config.plist`. If you have same USB controllers adresses as me, SSDT should work. If it still does not work you have to find addresses of USB controllers, and modify `SSDT-SLEEP`.  
 
 To modify SSDT use [**MaciASL**](https://github.com/acidanthera/MaciASL). If SSDT does not help read [**Dortania's guide about sleep**](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html). Remember to try USB mapping.
 
@@ -69,6 +67,8 @@ Don't try to use them both at the same time, it won't work.
 
 ## Adobe applications fix
 Adobe applications crash on AMD Hackintoshes due to missing intel_fast_memset instructions. Follow [**this guide**](https://gist.github.com/mikigal/8e1f804fcd7dbafbded2f236653be7c8) to get it working!  
+
+But in Adobe CC 2021 only Photoshop and Illustator need patches, After Effect, Premier Pro, Audition, Character Animation, Media Encoder work without patches.
 
 ## Guides
 **If you have any problems with installation or booting your macOS, kernel panics or another system related issue check OC configuration guide**  
@@ -88,7 +88,6 @@ If you have any other questions or issues, feel free to ask on [**AMD-OSX Discor
  - [[Resources] Picker GUI](https://github.com/acidanthera/OcBinaryData/tree/master/Resources)
  - [[Patch] AMD_Vanilla](https://github.com/AMD-OSX/AMD_Vanilla)
  - [[SSDT] EC-USBX-DESKTOP](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-EC-USBX-DESKTOP.aml)
- - [[SSDT] SLEEP-PTXH](./OC/ACPI/SSDT-SLEEP-PTXH.aml)
  - [[Driver] OpenRuntime](https://github.com/acidanthera/OpenCorePkg)
  - [[Driver] OpenCanopy](https://github.com/acidanthera/OpenCorePkg)
  - [[Driver] OpenHfsPlus](https://github.com/acidanthera/OpenCorePkg)
@@ -100,7 +99,8 @@ If you have any other questions or issues, feel free to ask on [**AMD-OSX Discor
  - [[Kext] AMDRyzenCPUPowerManagement](https://github.com/trulyspinach/SMCAMDProcessor)
  - [[Kext] SMCAMDProcessor](https://github.com/trulyspinach/SMCAMDProcessor)
  - [[Kext] NVMeFix](https://github.com/acidanthera/NVMeFix)
- - [[Kext] AppleMCEReporterDisabler](https://github.com/AMD-OSX/AMD_Vanilla/blob/opencore/Extra/AppleMCEReporterDisabler.kext.zip)  
+ - [[Kext] AppleMCEReporterDisabler](https://github.com/AMD-OSX/AMD_Vanilla/blob/opencore/Extra/AppleMCEReporterDisabler.kext.zip)
+ - [[Kext] HoRNDIS](https://github.com/jwise/HoRNDIS)    
 
  **People:**
  - [Apple](https://apple.com) for macOS
