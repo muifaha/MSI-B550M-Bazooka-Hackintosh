@@ -77,7 +77,7 @@ Adobe applications crash on AMD Hackintoshes due to missing intel_fast_memset in
 But in Adobe CC 2021 only Photoshop and Illustator need patches, After Effect, Premier Pro, Audition, Character Animation, Media Encoder work without patches.
 
 ## Spoofing GPU
-In 'config.plist' -> 'DeviceProperties' -> 'Add' -> 'PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)' i add spoofing XFX 5500XT to Radeon Pro W5500X 8 GB remove 'PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)' and any childern if you note using RX 5500XT
+I add spoofing XFX 5500XT to Radeon Pro W5500X 8 GB In `config.plist` -> `DeviceProperties` -> `Add` -> `PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)` remove `PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)` and any childern if you are not using RX 5500XT
 
 ## Guides
 **If you have any problems with installation or booting your macOS, kernel panics or another system related issue check OC configuration guide**  
