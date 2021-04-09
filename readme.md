@@ -9,7 +9,7 @@
 | Motherboard | MSI B550M Bazooka |
 | RAM | 16GB (2 x 8GB) Corsair Vengeance Overclocked @ 3266MHz |
 | Audio Chipset | Realtek® ALC892/ALC897 |
-| GPU | XFX RX 5500 XT|
+| GPU | XFX RX 5500 XT 8GB|
 | LAN | Realtek® RTL8111HN 1Gbps LAN controller |
 | OS Disk | Transcend SSD SATA3 SSD230S 256GB |
 
