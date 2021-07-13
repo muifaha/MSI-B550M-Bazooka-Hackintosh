@@ -13,87 +13,15 @@
 | LAN | Realtek® RTL8111HN 1Gbps LAN controller |
 | OS Disk | Transcend SSD SATA3 SSD230S 256GB |
 
-**macOS version**: 11.2.3 (20D91)  
-**OpenCore version**: 0.6.8  
+**macOS version**: 11.5
+**OpenCore version**: 0.7.1  
 
-
-
-## Table of content
- - [Compatible macOS versions](#Compatible-macOS-versions)
- - [Issues](#Issues)
- - [How to use](#How-to-use)
- - [AMD Navi fix](#AMD-Navi-fix)
- - [Sleep informations](#Sleep-informations)
- - [PAT patch information](#PAT-patch-information)
- - [Adobe applications fix](#Adobe-applications-fix)
- - [Spoofing GPU](#Spoofing_GPU)
- - [Guides](#Guides)
- - [Cosmetics](#Cosmetics)
- - [Credits](#Credits)
-
-## Compatible macOS versions
- - High Sierra (10.13.x)
- - Mojave (10.14.x)
- - Catalina (10.15.x)
- - Big Sur (11.x)
-
-## Issues
- - Partially-working virtualization (only VirtualBox & Parallels Dekstop 13.1.0 or below)
- - Not working 3.5mm Jack microphone (only USB/Bluetooth microphones)
-
-## How to use
-  1. Make your USB installer with [**this guide**](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
-  2. Clone the repository and paste "BOOT" and "OC" directories into your's pendrive "EFI" folder
-  3. Download [**GenSMBIOS**](https://github.com/corpnewt/GenSMBIOS) to generate unique SMBIOS information. Run it and select **Generate SMBIOS**, as the model select **MacPro7,1**
-  4. Open config.plist with [**ProperTree**](https://github.com/corpnewt/ProperTree) and go to PlatformInfo > Generic. Set MLB (Board Serial), SystemSerialNumber (Serial) and SystemUUID (SmUUID) to generated values. Change ROM to your network card's MAC address without the `:` character. [**How to get MAC Address?**](https://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer)
-  5. Boot it!  
-  
-If audio does not work for you you have to change layout-id for your audio chipset. Find your codec [**here**](https://github.com/acidanthera/applealc/wiki/supported-codecs) and try setting `alcid` in `boot-args` parameter to every layout-id values from AppleALC wiki  until you get layout-id correct for your motherboard.  
-
-**You CAN NOT use SMBIOS from this repository, it MUST be unique for every macOS installation**
-
-## AMD Navi fix
-For AMD Navi GPUs (RX 5500, 5600, 5700) you have to add `agdpmod=pikera` to boot-args to fix black screen issue.
-
-## Sleep informations
-In my bluid sleep is work. If not, try to enable `SSDT-SLEEP` in `config.plist`. If you have same USB controllers adresses as me, SSDT should work. If it still does not work you have to find addresses of USB controllers, and modify `SSDT-SLEEP`.  
-
-To modify SSDT use [**MaciASL**](https://github.com/acidanthera/MaciASL). If SSDT does not help read [**Dortania's guide about sleep**](https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html). Remember to try USB mapping.
-
-## PAT patch information
-| **Shaneee's** | **Algrey's** |
-| ------------- | --------- |
-| Much better GPU performance | Worse GPU performance |
-| May not work with NVidia GPUs | Compatible with all GPUs | 
-| HDMI/DP audio may not work | HDMI/DP audio works | 
-| Enabled by default | Disabled by default |
-
-To switch to another patch search for `mtrr_update_action` in `config.plist`. Then set `Enabled` to `true` for patch which you want to use. Remember to set `Enabled` to `false` for second PAT patch.  
-Don't try to use them both at the same time, it won't work.
-
-## Adobe applications fix
-Adobe applications crash on AMD Hackintoshes due to missing intel_fast_memset instructions. Follow [**this guide**](https://gist.github.com/mikigal/8e1f804fcd7dbafbded2f236653be7c8) to get it working!  
-
-But in Adobe CC 2021 only Photoshop and Illustator need patches, After Effect, Premier Pro, Audition, Character Animation, Media Encoder work without patches.
-
-## Spoofing GPU
-I add spoofing XFX 5500XT to Radeon Pro W5500X 8 GB In `config.plist` -> `DeviceProperties` -> `Add` -> `PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)` remove `PciRoot(0x0)/Pci(0x3,0x1)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)` and any childern if you are not using RX 5500XT
-
-## Guides
-**If you have any problems with installation or booting your macOS, kernel panics or another system related issue check OC configuration guide**  
-**If something else isn't working properly (for example USB ports, iServices, DRM/Netflix) check Post-Install guide**
- - Creating USB installer: [**\*click\***](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
- - OpenCore configuration: [**\*click\***](https://dortania.github.io/OpenCore-Install-Guide/AMD/zen.html)
- - Post-Install: [**\*click\***](https://dortania.github.io/OpenCore-Post-Install/)
- - Troubleshooting: [**\*click\***](https://dortania.github.io/OpenCore-Post-Install/)
- - ACPI patching: [**\*click\***](https://dortania.github.io/Getting-Started-With-ACPI/)
- - USB mapping: [**\*click\***](https://dortania.github.io/OpenCore-Post-Install/usb/)
-
-If you have any other questions or issues, feel free to ask on [**AMD-OSX Discord**](https://discord.gg/EfCYAJW) or [**Forum**](https://forum.amd-osx.com)
-
-## Cosmetics
-- [Guide: Change CPU name in Big Sur](https://climbjoe.tv/how-to-change-your-processor-name-in-big-sur/)
-- [Guide: Change Logo Big Sur in About This Mac](https://github.com/nfscars001/Mac-Ryzen-Logo)
+ACPI SSDT's​
+SSDT-USBX (USB power tables)
+SSDT-PLUG (CPU power management)
+SSDT-SBRG (Correcting EC, RTC memory & IRQ conflicts)
+SSDT-SBUS-MCHC (SMBus Support)
+SSDT-CPUR
 
 
 ## Credits
