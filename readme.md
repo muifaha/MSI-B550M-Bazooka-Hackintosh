@@ -17,11 +17,11 @@
 **OpenCore version**: 0.7.1  
 
 ACPI SSDT's​
-SSDT-USBX (USB power tables)
-SSDT-PLUG (CPU power management)
-SSDT-SBRG (Correcting EC, RTC memory & IRQ conflicts)
-SSDT-SBUS-MCHC (SMBus Support)
-SSDT-CPUR
+- SSDT-USBX (USB power tables)
+- SSDT-PLUG (CPU power management)
+- SSDT-SBRG (Correcting EC, RTC memory & IRQ conflicts)
+- SSDT-SBUS-MCHC (SMBus Support)
+- SSDT-CPUR
 
 
 ## Credits
